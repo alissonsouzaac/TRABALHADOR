@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stdlib.h>
+#include "Trabalhador.h"
+#include "TrabalhadorAssalariado.h"
+#include "TrabalhadorPorHora.h"
+using namespace std;
+
+int main()
+{
+    double salMensal, salHora;
+    int horas;
+    string nome;
+
+    cout << "Digite o Nome e o Salario do TRABALHADOR:" << endl;
+    getline(cin, nome);
+    cin>>salMensal;
+
+    Trabalhador t1 = Trabalhador(nome, salMensal);
+
+    cout<<"Informe o Valor do Salario Hora e a quantidade de Horas Semanais: "<<endl;
+    cin>>salHora>>horas;
+    TrabalhadorPorHora t2 = TrabalhadorPorHora(nome, salMensal, salHora);
+    cout<<"Valor do Pagamento Semanal:"<<t2.calcularPagamentoSemanal(horas)<<endl;
+
+    TrabalhadorAssalariado t3 = TrabalhadorAssalariado(nome, salMensal);
+    cout<<"Valor do Pagamento Semanal:"<<t3.calcularPagamentoSemanal()<<endl;
+    return 0;
+}
